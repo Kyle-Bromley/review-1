@@ -1,0 +1,51 @@
+#include "Triangle.h"
+
+Triangle::Triangle(int r)
+{
+	szRow = r;
+	records = new RowAray*(new RowAray(szRow));
+}
+
+Triangle::~Triangle()
+{
+}
+
+int Triangle::getData(int r, int c)
+{
+	return (*records)->getData(r + c);
+}
+===================================================================================================
+#include "Table.h"
+
+Table::Table(int r, int c)
+{
+	szRow = r;
+	szCol = c;
+	records = new RowAray*(new RowAray(szRow*szCol));
+}
+
+Table::~Table()
+{
+}
+
+int Table::getData(int r, int c)
+{	
+	return (*records)->getData(r+c);
+}
+
+=============================================================================================================
+#include "RowAray.h"
+
+RowAray::RowAray(int s)
+{
+	size = s;
+	rowData = new int[s];
+	for (int i = 0; i < s; i++)
+	{
+		rowData[i] = rand() % 90 + 10;
+	}
+}
+
+RowAray::~RowAray()
+{
+}
